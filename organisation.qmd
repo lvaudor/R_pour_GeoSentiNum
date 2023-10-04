@@ -1,0 +1,39 @@
+---
+title: "ORGANISATION"
+---
+
+## 🏫 SEANCE 1 {#seance1 .unnumbered}
+
+Abordés en séance 1:
+
+-   [Introduction](#intro)
+-   [Objets de base](#objets_de_base)
+-   [Opérateurs, fonctions, packages](#operateurs_fonctions_packages)
+
+## 🏠 DM 1 {#dm1 .unnumbered}
+
+Vous êtes désormais en mesure de faire la partie [Mise en place](#mise_en_place){target="_blank"}
+
+## 🏫 SEANCE 2 {#seance2 .unnumbered}
+
+Abordés en séance 2:
+
+-   [Workflow, projets, rapports](#workflow_projets_rapports)
+-   [Tableaux de données](#tableaux_de_donnees)
+
+## 🏠 DM 2 {#dm2 .unnumbered}
+
+Vous êtes désormais en mesure de faire la partie [manip_tableaux](#manip_tableaux){target="_blank"}
+
+## 🏫 SEANCE 3 {#seance3 .unnumbered}
+
+Abordés en séance 3:
+
+-   [Graphiques](#graphiques)
+-   [Programmation](#programmation)
+-   [Objets spatiaux](#objets_spatiaux)
+-   [Cartes](#cartes)
+
+## 🏠 DM 3 {#dm3 .unnumbered}
+
+Vous êtes désormais en mesure de faire tout le reste à partir d'[ici](#program).

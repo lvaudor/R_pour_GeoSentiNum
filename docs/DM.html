@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R pour les GeoSentiNum - DM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R pour les GeoSentiNum</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contenu.html" rel="" target="">
+ <span class="menu-text">Contenu</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./organisation.html" rel="" target="">
+ <span class="menu-text">ORGANISATION</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./DM.html" rel="" target="" aria-current="page">
+ <span class="menu-text">DM</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#devoir-maison" id="toc-devoir-maison" class="nav-link active" data-scroll-target="#devoir-maison">DEVOIR MAISON</a>
+  <ul class="collapse">
+  <li><a href="#mise_en_place" id="toc-mise_en_place" class="nav-link" data-scroll-target="#mise_en_place">Mise en place</a>
+  <ul class="collapse">
+  <li><a href="#installations-téléchargements-premiers-tests-sur-le-département-42" id="toc-installations-téléchargements-premiers-tests-sur-le-département-42" class="nav-link" data-scroll-target="#installations-téléchargements-premiers-tests-sur-le-département-42">Installations, téléchargements, premiers tests sur le département 42</a></li>
+  <li><a href="#manip_tableaux" id="toc-manip_tableaux" class="nav-link" data-scroll-target="#manip_tableaux">Lecture de tableaux de données</a></li>
+  <li><a href="#code-et-types-dactivités-commerces-alimentaires" id="toc-code-et-types-dactivités-commerces-alimentaires" class="nav-link" data-scroll-target="#code-et-types-dactivités-commerces-alimentaires">Code et types d’activités =&gt; commerces alimentaires</a></li>
+  <li><a href="#résumé-classement" id="toc-résumé-classement" class="nav-link" data-scroll-target="#résumé-classement">Résumé, classement</a></li>
+  </ul></li>
+  <li><a href="#rapport-statistiques-descriptives" id="toc-rapport-statistiques-descriptives" class="nav-link" data-scroll-target="#rapport-statistiques-descriptives">Rapport, statistiques descriptives</a></li>
+  <li><a href="#program" id="toc-program" class="nav-link" data-scroll-target="#program">Programmation: automatisation pour plusieurs départements</a>
+  <ul class="collapse">
+  <li><a href="#fonction" id="toc-fonction" class="nav-link" data-scroll-target="#fonction">Fonction</a></li>
+  <li><a href="#itération" id="toc-itération" class="nav-link" data-scroll-target="#itération">Itération</a></li>
+  <li><a href="#if-et-écriture-de-fichier" id="toc-if-et-écriture-de-fichier" class="nav-link" data-scroll-target="#if-et-écriture-de-fichier">If et écriture de fichier</a></li>
+  </ul></li>
+  <li><a href="#résumé-par-commune-et-type-de-commerce" id="toc-résumé-par-commune-et-type-de-commerce" class="nav-link" data-scroll-target="#résumé-par-commune-et-type-de-commerce">Résumé par commune et type de commerce</a>
+  <ul class="collapse">
+  <li><a href="#agrégation-des-données-par-commune-et-type-de-commerce" id="toc-agrégation-des-données-par-commune-et-type-de-commerce" class="nav-link" data-scroll-target="#agrégation-des-données-par-commune-et-type-de-commerce">Agrégation des données par commune et type de commerce</a></li>
+  <li><a href="#graphique" id="toc-graphique" class="nav-link" data-scroll-target="#graphique">Graphique</a></li>
+  </ul></li>
+  <li><a href="#evolution-dans-le-temps-des-créations-dentreprise" id="toc-evolution-dans-le-temps-des-créations-dentreprise" class="nav-link" data-scroll-target="#evolution-dans-le-temps-des-créations-dentreprise">Evolution dans le temps des créations d’entreprise</a>
+  <ul class="collapse">
+  <li><a href="#manipuler-des-dates-avec-lubridate" id="toc-manipuler-des-dates-avec-lubridate" class="nav-link" data-scroll-target="#manipuler-des-dates-avec-lubridate">Manipuler des dates avec <code>lubridate</code></a></li>
+  <li><a href="#résumé-filtre" id="toc-résumé-filtre" class="nav-link" data-scroll-target="#résumé-filtre">Résumé, filtre</a></li>
+  <li><a href="#graphiques-évolution-du-nombre-dentreprises-au-cours-du-temps" id="toc-graphiques-évolution-du-nombre-dentreprises-au-cours-du-temps" class="nav-link" data-scroll-target="#graphiques-évolution-du-nombre-dentreprises-au-cours-du-temps">Graphiques: évolution du nombre d’entreprises au cours du temps</a></li>
+  </ul></li>
+  <li><a href="#cartes" id="toc-cartes" class="nav-link" data-scroll-target="#cartes">Cartes</a>
+  <ul class="collapse">
+  <li><a href="#carte-des-boulangeries-pâtisseries" id="toc-carte-des-boulangeries-pâtisseries" class="nav-link" data-scroll-target="#carte-des-boulangeries-pâtisseries">Carte des boulangeries-pâtisseries</a></li>
+  <li><a href="#carte-des-proportions-de-commerce-par-commune" id="toc-carte-des-proportions-de-commerce-par-commune" class="nav-link" data-scroll-target="#carte-des-proportions-de-commerce-par-commune">Carte des proportions de commerce par commune</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DM</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="devoir-maison" class="level1">
+<h1>DEVOIR MAISON</h1>
+<div style="background-color: #ffccff;">
+<p>J’attends vos rendus le <strong>20/11/2023</strong>. Les retards seront pénalisés (-2 points par semaine de retard)!</p>
+<p>Vous pouvez me fournir <strong>un rendu par groupe</strong></p>
+<ul>
+<li>en m’indiquant (en quelques lignes) comment vous avez <strong>réparti les tâches</strong> et de quelle manière vous avez investi tel ou tel aspect</li>
+<li>en m’indiquant si vous souhaitez avoir une <strong>note commune</strong> pour ce travail ou <strong>une note individuelle</strong></li>
+</ul>
+<p>Il faudra donc a minima que vous atteigniez un consensus sur cette partie “qui a fait quoi”, et s’il y en a ne serait-ce qu’un seul qui souhaite la notation individualisée dans le groupe alors c’est son avis qui prévaudra! (Oui c’est un peu compliqué: l’idée, comme vous l’aurez sans doute compris, c’est que personne ne se laisse passivement porter par les autres dans les groupes…)</p>
+<p>J’attends que vous me fournissiez à la fois:</p>
+<ul>
+<li>le <strong>document Rmarkdown</strong> (qui, de fait, me permettra de voir l’intégralité des lignes de commande que vous aurez écrit)</li>
+<li>le <strong>rapport “tricoté”</strong> (i.e.&nbsp;le fichier .doc, .html, ou .pdf selon vos préférences).</li>
+</ul>
+<p>De ce fait, vous pouvez, si vous le souhaitez, ne pas me montrer les lignes de commandes dans le rapport pour faire “comme si” j’étais un interlocuteur qui ne connaît pas le langage et s’intéresse juste aux résultats…</p>
+<p>Si vous me montrez des tableaux de données intermédiaires, essayez de me montrer seulement quelques lignes, ou leurs dimensions, pas des tableaux énormes qui vont générer 10 pages de rapport pour pas grand chose…</p>
+<p>Enfin, <strong>ne soyez pas trop scolaires</strong>… Prenez cet exercice comme une “simulation” de rapport qu’on vous demanderait de produire dans le cadre d’un stage ou de votre travail… Je veux dire par là que vous avez le droit d’utiliser des fonctions autres que celles que je vous ai montrées, de faire des choses en plus par rapport à ce que je vous demande (pas en moins SVP :-p ), d’organiser le rapport pour que la progression soit la plus logique possible, etc. La description étape par étape que je vous indique n’est en effet là que pour vous aider dans votre progression (et pour assurer que vous révisiez bien différents aspects abordés dans le cours…), pas pour brimer votre imagination…</p>
+</div>
+<p>Vous allez travailler sur des données de la <strong>base Sirene de l’INSEE</strong>, mise à disposition sur <a href="data.gouv.fr">data.gouv.fr</a>, et qui répertorie l’ensemble des <strong>entreprises et établissements actifs</strong> en France. Les métadonnées associées à cette base sont en partie décrites dans <a href="https://www.data.gouv.fr/s/resources/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/20170112-180748/liste-modalites-l2.csv">ce tableau</a>.</p>
+<section id="mise_en_place" class="level2">
+<h2 class="anchored" data-anchor-id="mise_en_place">Mise en place</h2>
+<p><img src="outlines/fig1.png" class="img-fluid" style="width:75.0%"></p>
+<section id="installations-téléchargements-premiers-tests-sur-le-département-42" class="level3">
+<h3 class="anchored" data-anchor-id="installations-téléchargements-premiers-tests-sur-le-département-42">Installations, téléchargements, premiers tests sur le département 42</h3>
+<ul>
+<li>Si besoin, installez R et RStudio</li>
+<li><strong>Téléchargez</strong> les données du <strong>département 42</strong>, <code>geo_siret_42.csv</code> <a href="http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/cours_geonum/data/geo-sirene/">dans ce répertoire</a></li>
+<li><strong>Téléchargez</strong> la table qui renseigne les codes correspondant à l’Activité Principale de l’Etablissement (APE)<a href="http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/cours_geonum/data/APE_Type.csv">APE_Type.csv</a></li>
+</ul>
+</section>
+<section id="manip_tableaux" class="level3">
+<h3 class="anchored" data-anchor-id="manip_tableaux">Lecture de tableaux de données</h3>
+<ul>
+<li>Depuis <strong>RStudio</strong>, <strong>créez un projet</strong> qui comprendra l’ensemble des données et documents nécessaires à réaliser l’ensemble des traitements qui vous seront demandés pour ce TP.</li>
+<li><strong>Créez le data.frame</strong> <code>data42</code> en lisant la table <code>geo-siret_42.csv</code>.</li>
+<li>Créez l’objet <code>APE_Type</code> en lisant le fichier relatif aux codes d’APE.</li>
+</ul>
+</section>
+<section id="code-et-types-dactivités-commerces-alimentaires" class="level3">
+<h3 class="anchored" data-anchor-id="code-et-types-dactivités-commerces-alimentaires">Code et types d’activités =&gt; commerces alimentaires</h3>
+<p>👁 Consultez <a href="http://perso.ens-lyon.fr/lise.vaudor/manipuler-des-strings-avec-r/">ce billet de blog sur la manipulation de chaînes de caractères avec R et le package <code>stringr</code></a></p>
+<ul>
+<li>Combien d’entreprises ont un nom (enseigne1Etablissement) qui comprend le terme “BOULANGERIE”?</li>
+<li>Ajoutez une variable <code>Code</code> à votre table en ne conservant que les quatre premiers caractères de la variable activitePrincipaleEtablissement (cela correspond à un <strong>pattern “^….”</strong>, à savoir le début de chaîne de caractère suivi de quatre caractères quelconques -cf <a href="http://perso.ens-lyon.fr/lise.vaudor/strings-et-expressions-regulieres/">ce billet de blog sur les expressions régulières</a>-).</li>
+<li><strong>Filtrez</strong> les lignes de <code>data42</code> pour ne retenir que celles pour lesquelles l’APE correspond aux commerces “alimentaires” -alimentation, boisson, restaurant, bar- (voir la liste contenue dans le fichier APE_Type)</li>
+<li><strong>Stockez</strong> le résultat de ces opérations dans un objet <code>alim42</code>.</li>
+<li>👁 Allez jeter un coup d’oeil <a href="http://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/" target="_blank">ici</a> pour comprendre comment le principe et la réalisation des <strong>jointures</strong> à l’aide du package <code>dplyr</code>.Réalisez une <strong>jointure</strong> entre <code>data42_alim</code> (variable <code>codeAPE</code>) et <code>APE_Type</code> (variable <code>Code</code>), de manière à compléter <code>alim42</code> avec les types de commerces (variables <code>Type</code> et <code>TypeAbreg</code>).</li>
+</ul>
+</section>
+<section id="résumé-classement" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-classement">Résumé, classement</h3>
+<ul>
+<li>Quelles sont les <strong>3 communes</strong> de votre base de données qui comptent <strong>le plus de magasins alimentaires</strong>?</li>
+<li>Pour les <strong>communes qui ne comptent qu’un seul commerce</strong> “alimentaire”, de <strong>quel type</strong> est-il, le plus fréquemment?</li>
+<li>Quelles <strong>communes de plus de 100 commerces</strong> comptent <strong>au moins 10 commerces de type “viande”</strong>?</li>
+</ul>
+</section>
+</section>
+<section id="rapport-statistiques-descriptives" class="level2">
+<h2 class="anchored" data-anchor-id="rapport-statistiques-descriptives">Rapport, statistiques descriptives</h2>
+<p>A ce stade, votre script commence à être un peu long et (peut-être) un peu désordonné… Ne serait-ce pas plus agréable de continuer votre projet sous la forme d’un <strong>rapport Rmarkdown</strong>? (Ne répondez pas à cette question, elle est rhétorique…).</p>
+<ul>
+<li>Créez un document <code>____.Rmd</code>, <strong>structurez-le avec quelques titres</strong>, et répartissez les différents morceaux de code de votre script de manière pertinente dans différents <strong>chunks</strong>.</li>
+<li>Vous pouvez maintenant rédiger des paragraphes en y intégrant des éléments de réponses aux questions posées précédemment. Rédigez un <strong>petit paragraphe</strong> pour nommer les <strong>3 communes qui comptent le plus d’entreprises</strong> (exercice précédent) en utilisant l’insertion d’“<strong>inline chunks</strong>”.</li>
+</ul>
+<p>A partir de maintenant, votre <strong>document de travail</strong> sera un document`___.Rmd’ et non le script que vous avez créé initialement…</p>
+</section>
+<section id="program" class="level2">
+<h2 class="anchored" data-anchor-id="program">Programmation: automatisation pour plusieurs départements</h2>
+<p><img src="outlines/fig2.png" class="img-fluid" style="width:75.0%"></p>
+<section id="fonction" class="level3">
+<h3 class="anchored" data-anchor-id="fonction">Fonction</h3>
+<p>Pour obtenir la table <code>alim42</code>, vous avez réalisé un certain nombre d’opérations. On voudrait réaliser l’ensemble de ces opérations pour les 5 départements suivants:</p>
+<ul>
+<li>l’Ain (01)</li>
+<li>l’Isère (38)</li>
+<li>la Loire (42)</li>
+<li>la Haute-Loire (43)</li>
+<li>le Rhône (69)</li>
+</ul>
+<p>Réutilisez les commandes que vous avez mises au point sur data42 pour <strong>écrire une fonction</strong> <code>get_clean_data()</code> qui réalisera l’ensemble de ces opérations sur le département de votre choix. L’input correspondra à un <strong>numéro de département</strong> (c’est-à-dire que vous pourrez utiliser la fonction en faisant, par exemple <code>get_clean_data("01")</code>).</p>
+<p>💬 Pour lire le fichier, il faudra indiquer son <strong>chemin</strong>… Pensez à réutiliser ce que vous venez d’apprendre sur les <strong>chaînes de caractères</strong> pour reformer le chemin du fichier que vous intéresse à partir du numéro de département…</p>
+<p>Certaines chaînes de caractère sont interprétées comme des chaînes de caractère pour certains jeux de données (par exemple pour les codes postaux de l’Ain, à cause du “0” en début de chaîne) tandis qu’elle est interprétée comme un numérique pour les autres jeux de données. Faites en sorte que votre fonction transforme bien cette variable pour qu’elles soient <strong>toujours de classe “character”</strong> en sortie (conversion par <code>as.character()</code>…).</p>
+</section>
+<section id="itération" class="level3">
+<h3 class="anchored" data-anchor-id="itération">Itération</h3>
+<p>Appelez cette fonction <strong>de manière itérative pour chacun des départements cités ci-dessus</strong>. Vous pouvez pour ce faire soit écrire une boucle for, soit utiliser la fonction <code>map()</code> du package <code>purrr</code>.</p>
+<ul>
+<li>A partir des 5 jeux de données obtenus vous créerez <strong>un seul et même jeu de données <code>alimRA_entr</code></strong> (données pour l’ancienne région Rhône-Alpes, où 1 ligne=1 entreprise).</li>
+</ul>
+<p>💬 Vous pourrez si vous le souhaitez vous servir de la commande <code>bind_rows()</code>.</p>
+<p>Exemple:</p>
+<div class="cell" data-result="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ma_liste</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+# A tibble: 1 × 3
+  V1       V2    V3
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 pouet    33  0.22
+
+[[2]]
+# A tibble: 1 × 3
+  V1       V2    V3
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 tut      56  0.18
+
+[[3]]
+# A tibble: 1 × 3
+  V1       V2    V3
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 cot      11  0.16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(ma_liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  V1       V2    V3
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 pouet    33  0.22
+2 tut      56  0.18
+3 cot      11  0.16</code></pre>
+</div>
+</div>
+<ul>
+<li>Rajoutez une variable <code>departement</code> (correspondant au numéro de département) à votre jeu de données <code>alimRA_entr</code>. Peut-être par des manipulations sur le code postal?…</li>
+</ul>
+</section>
+<section id="if-et-écriture-de-fichier" class="level3">
+<h3 class="anchored" data-anchor-id="if-et-écriture-de-fichier">If et écriture de fichier</h3>
+<p>Vous avez dû remarquer que l’exécution de l’étape précédente prenait un peu de temps car les 5 fichiers geo-sirene lus sont très volumineux… En revanche la table <code>alimRA_entr</code> est de taille beaucoup plus raisonnable. Or, nous n’aurons besoin que de cette table pour la suite du projet. Pour éviter d’exécuter cette étape chronophage à chaque fois que vous travaillerez sur ce projet:</p>
+<ul>
+<li><strong>exportez</strong> <code>alimRA_entr</code> dans un fichier <code>alimRA_entr.csv</code>.</li>
+<li>entourez la boucle <code>for</code> d’une <strong>structure conditionnelle <code>if</code></strong> de sorte que la boucle ne soit exécutée que si le fichier <code>alimRA_entr.csv</code> n’existe pas (voir fonction <code>file.exists()</code>…)</li>
+<li>écrivez à la suite la commande qui servira à <strong>lire <code>alimRA_entr.csv</code></strong> à chaque “tricotage” de votre rapport Rmarkdown.</li>
+</ul>
+</section>
+</section>
+<section id="résumé-par-commune-et-type-de-commerce" class="level2">
+<h2 class="anchored" data-anchor-id="résumé-par-commune-et-type-de-commerce">Résumé par commune et type de commerce</h2>
+<p><img src="outlines/fig3.png" class="img-fluid" style="width:45.0%"></p>
+<section id="agrégation-des-données-par-commune-et-type-de-commerce" class="level3">
+<h3 class="anchored" data-anchor-id="agrégation-des-données-par-commune-et-type-de-commerce">Agrégation des données par commune et type de commerce</h3>
+<p>Agrégez la table <code>alimRA_entr</code> par commune et type de commerce, pour créer une table <code>alimRA_typeCom</code>(où une ligne correspondra à un type de commerce pour une commune):</p>
+<ul>
+<li><p>une variable <code>nInCom</code> correspondant au <strong>nombre de commerces par commune</strong></p></li>
+<li><p>une variable <code>nInTypeCom</code> correspondant au <strong>nombre de commerces par type et commune</strong></p></li>
+<li><p>une variable <code>propInTypeCom</code> correspondant à la <strong>proportion d’un type de commerce dans une commune</strong></p></li>
+<li><p>Quelles communes comptant plus de 100 commerces comptes au moins 5% de commerces de type “viande”?</p></li>
+</ul>
+</section>
+<section id="graphique" class="level3">
+<h3 class="anchored" data-anchor-id="graphique">Graphique</h3>
+<p>Réalisez un graphique montrant les proportions des différents types de commerces pour <strong>LYON 4EME</strong> et <strong>LYON 8EME</strong>.</p>
+</section>
+</section>
+<section id="evolution-dans-le-temps-des-créations-dentreprise" class="level2">
+<h2 class="anchored" data-anchor-id="evolution-dans-le-temps-des-créations-dentreprise">Evolution dans le temps des créations d’entreprise</h2>
+<p><img src="outlines/fig4.png" class="img-fluid" style="width:45.0%"></p>
+<section id="manipuler-des-dates-avec-lubridate" class="level3">
+<h3 class="anchored" data-anchor-id="manipuler-des-dates-avec-lubridate">Manipuler des dates avec <code>lubridate</code></h3>
+<p>Nous allons nous intéresser aux dates de création des entreprises de notre base <code>alimRA_entr</code> (variable <code>dateCreationEtablissement</code>).</p>
+<p>💬 Pour le moment, <code>dateCreationEtablissement</code> est considéré comme une variable de type “chaîne de caractères”. Pour faire comprendre à R qu’il s’agit en réalité d’une date (et lui faire comprendre comment elle est mise en forme) nous allons faire appel au package <code>lubridate</code>.</p>
+<p>👁 Consultez <a href="http://perso.ens-lyon.fr/lise.vaudor/gerer-des-dates-avec-lubridate-un-jeu-denfant/">ce billet de blog</a> ou la <a href="https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html"><strong>vignette</strong></a> du package <code>lubridate</code>, qui explique succintement comment utiliser ce package.</p>
+<ul>
+<li><strong>Installez</strong> et <strong>chargez</strong> le package <code>lubridate</code>.</li>
+<li>Transformez le tableau <code>alimRA_entr</code> en <strong>modifiant la classe de <code>dateCreationEtablissement</code></strong> à l’aide d’une fonction de <code>lubridate</code>.</li>
+<li><strong>Ajoutez une variable <code>annee</code></strong> au tableau <code>alimRA_entr</code> à l’aide, à nouveau, d’une des fonctions de <code>lubridate</code>.</li>
+</ul>
+</section>
+<section id="résumé-filtre" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-filtre">Résumé, filtre</h3>
+<ul>
+<li>Créez une table <code>alimRA_typeAn</code> qui recense le **nombre d’entreprises par année (<code>nInAn</code>), et par type*année (<code>nInTypeAn</code>)**.</li>
+<li><strong>Filtrez</strong> les données de <code>alimRA_typeAn</code> pour ne garder que les <strong>entreprises dont la création correspond aux années &gt;=1970</strong>.</li>
+</ul>
+</section>
+<section id="graphiques-évolution-du-nombre-dentreprises-au-cours-du-temps" class="level3">
+<h3 class="anchored" data-anchor-id="graphiques-évolution-du-nombre-dentreprises-au-cours-du-temps">Graphiques: évolution du nombre d’entreprises au cours du temps</h3>
+<ul>
+<li><strong>Installez</strong> et <strong>chargez</strong> le package <code>ggplot2</code></li>
+<li>Réalisez un <strong>graphique</strong> représentant l’<strong>évolution des proportions d’entreprises (par type) par année</strong>.</li>
+<li>Réalisez ce même graphique, mais en représentant <strong>le nombre de créations d’entreprises par année et par type, pour les 5 types comptant le plus de créations d’entreprises (au total)</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="cartes" class="level2">
+<h2 class="anchored" data-anchor-id="cartes">Cartes</h2>
+<p><img src="outlines/fig5.png" class="img-fluid" style="width:45.0%"></p>
+<section id="carte-des-boulangeries-pâtisseries" class="level3">
+<h3 class="anchored" data-anchor-id="carte-des-boulangeries-pâtisseries">Carte des boulangeries-pâtisseries</h3>
+<ul>
+<li>Repartez de la table <code>alim_entr</code> pour en faire un <strong>objet de classe “sf”</strong>. Vous vous servirez pour cela des colonnes “longitude” et “latitude” et exclurez les entreprises pour lesquelles ces colonnes ne sont pas renseignées.</li>
+<li>Réalisez une <strong>carte</strong> montrant le semis de points correspondant aux <strong>boulangeries-pâtisseries</strong>.</li>
+<li>Essayez de représenter à travers cette carte l’année de création de l’entreprise (de la manière qui vous semblera la plus pertinente).</li>
+</ul>
+</section>
+<section id="carte-des-proportions-de-commerce-par-commune" class="level3">
+<h3 class="anchored" data-anchor-id="carte-des-proportions-de-commerce-par-commune">Carte des proportions de commerce par commune</h3>
+<ul>
+<li>Téléchargez le shapefile des limites de communes en France <a href="https://www.data.gouv.fr/fr/datasets/geofla-limites-des-communes-en-france/#_">ici</a> et filtrez pour ne garder que les départements considérés ci-dessus.</li>
+<li>Joignez aux communes les informations concernant les commerces (st_join()…) et calculez le nombre de commerces par commune.</li>
+<li>Produisez une carte montrant le nombre de commerces par commune. Vous aurez sans doute à retravailler l’échelle colorée…</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

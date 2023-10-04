@@ -1,0 +1,176 @@
+---
+title: "CONTENU"
+---
+
+## Introduction {#intro .unnumbered}
+
+👩‍🏫 Cours: [Introduction](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_0_introduction.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: [exos_base: introduction](https://isig-apps.ens-lyon.fr/apps/lvaudor/Restart_exos_base/#section-introduction){target="_blank"}
+
+🎯Objectifs :
+
+-   comprendre l'**intérêt** et l'**usage** de **R** et de ses **packages**
+-   comprendre l'**intérêt** et l'**usage** de **RStudio**
+-   comprendre ce que sont un **objet**, un **environnement** et une **ligne de commande**,
+-   comprendre la distinction entre **script** et **console**,
+
+## Objets de base {#objets_de_base .unnumbered}
+
+👩‍🏫 Cours: [Objets de base](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_1_objets_de_base.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: [exos_base: objets](https://isig-apps.ens-lyon.fr/apps/lvaudor/Restart_exos_base/#section-objets-de-base){target="_blank"}
+
+🎯 Objectifs :
+
+-   **connaître** différents **types d'objets** (vecteurs, facteurs, listes, tableaux de données...)
+-   savoir **créer** différents types d'objets (vecteurs, facteurs, listes, tableaux de données...)
+-   comprendre ce qu'est le **mode** d'un vecteur ou d'une matrice (logique, numérique, caractère...)
+-   savoir **convertir** un objet d'un type/mode à un autre
+-   savoir **accéder aux valeurs** des objets via leur **système d'indexation**\|
+
+## Opérateurs, fonctions, packages {#operateurs_fonctions_packages .unnumbered}
+
+👩‍🏫 Cours: [Opérateurs, fonctions, packages](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_2_operateurs_fonctions_packages.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: [exos_base: opérateurs, fonctions, packages](https://isig-apps.ens-lyon.fr/apps/lvaudor/Restart_exos_base/#section-opérateurs-fonctions-et-packages){target="_blank"}
+
+🎯 Objectifs :
+
+-   connaître et savoir utiliser les **opérateurs** arithmétiques, logiques, et de comparaison
+-   savoir utiliser une **fonction**
+-   comprendre l'usage des **arguments** d'une fonction (nom, ordre, valeurs par défaut)
+-   savoir rechercher des informations dans l'**aide** associée aux fonctions
+
+## Workflow, projets, rapports {#workflow_projets_rapports .unnumbered}
+
+👩‍🏫 Cours: [Workflow,projets, rapports](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_3_workflow_projets_rapports.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: pas d'exos en classe
+
+🎯 Objectifs :
+
+-   comprendre l'organisation et l'intérêt de travailler **en projet**
+-   comprendre l'organisation et l'intérêt d'un rapport **Rmarkdown**
+-   savoir intégrer des chunks de code R dans un rapport
+-   comprendre comment tester le code des chunks **depuis un document .Rmd**
+-   savoir paramétrer les chunks
+
+## Tableaux de données {#tableaux_de_donnees .unnumbered}
+
+👩‍🏫 Cours: [Tableaux de données](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_4_tableaux_de_donnees.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: [exos_tableaux](https://isig-apps.ens-lyon.fr/apps/lvaudor/Restart_exos_tableaux/){target="_blank"}
+
+🎯 Objectifs :
+
+-   savoir **lire un tableau de données**
+-   connaître le **package `dplyr`** pour la manipulation de tableaux de données
+-   savoir **sélectionner des colonnes** à l'aide de `select()`
+-   savoir **filtrer les lignes** à l'aide de `filter()`
+-   savoir **arranger l'ordre des lignes** à l'aide de `arrange()`
+-   savoir **modifier/créer des colonnes** à l'aide de `mutate()`
+-   savoir **résumer** des tableaux à l'aide de `summarise()` et `group_by()`
+
+## Graphiques {#graphiques .unnumbered}
+
+👩‍🏫 Cours: [Graphiques](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_5_graphiques.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: [exos_graphiques](https://isig-apps.ens-lyon.fr/apps/lvaudor/Restart_exos_graphiques/){target="_blank"}
+
+🎯 Objectifs :
+
+-   connaître le **package `ggplot2`** pour la production de graphiques
+-   savoir utiliser l'argument `data`, et l'argument `mapping`pour définir des **esthétiques** `x` et `y`
+-   comprendre ce qu'est un `geom` et en explorer différents types
+-   comprendre le **mapping** i.e. comment faire le **lien entre une variable et une caractéristique graphique** avec `aes()`
+-   comprendre l'impact de l'esthétique **appliquée au graphique** vs **appliquée à un geom**
+-   savoir créer différentes **facettes** d'un même graphique avec `facet_grid()` ou `facet_wrap()`
+-   savoir **étiqueter les axes** d'un graphique avec `labs()`
+-   savoir **modifier les échelles** d'un graphique à l'aide de `scale_..._...()`
+-   savoir **paramétrer les axes** d'un graphique à l'aide des arguments `labels`, `breaks`, `limits`,...
+-   savoir modifier l'allure générale du graphique avec `theme_...()`
+-   savoir **rajouter des informations** notamment des informations statistiques
+-   savoir superposer un **modèle de régression** via `geom_smooth()`
+
+## Programmation {#programmation .unnumbered}
+
+👩‍🏫 Cours: [Programmation](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_6_programmation.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos:
+
+-   **créez une fonction** `salutation()` qui prend comme argument d'entrée un prénom et renvoie en sortie la salutation "Bonjour xxx!" (remplacez xxx par le prénom bien sûr). =\> fonction paste() ou stringr::str_c() pour concaténer des chaînes de caractères.
+
+-   faites en sorte que **la valeur par défaut du prénom soit votre prénom** : si on ne précise pas la valeur de l'argument, la fonction renvoie "Bonjour xxx!" avec xxx= votre prénom
+
+-   **rajoutez un argument** `soir` pour obtenir la salutation "Bonsoir xxx!" au lieu de "Bonjour xxx!" si soir=TRUE.
+
+-   Faites tourner cette fonction **en boucle** pour saluer d'un coup (par exemple) c("Mathilde","Paul","Jeanne","Kevin").
+
+🎯 Objectifs :
+
+-   savoir **créer une fonction**
+-   savoir **construire une structure conditionnelle if**
+-   savoir itérer en **construisant une boucle for**
+-   savoir itérer en **programmation fonctionnelle** en utilisant le package `purrr`
+
+## Objets spatiaux {#objets_spatiaux .unnumbered}
+
+👩‍🏫 Cours: [Objets spatiaux](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_7_objets_spatiaux.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos:
+
+-   **Lisez le shapefile arrondissements** (téléchargeable [ici](https://www.data.gouv.fr/fr/datasets/arrondissements-de-lyon/))
+
+-   Calculez les **aires des arrondissements**
+
+-   Classez la table d'attributs `arrondissements` par **aire décroissante**
+
+-   **Lisez la table lyon_equipements** (disponible [ici](https://raw.githubusercontent.com/lvaudor/lyon_equipements/master/lyon_equipements.csv)), **transformez-la en objet sf**
+
+-   **Réunissez les polygones** des arrondissements en **un seul polygone** délimitant la ville de Lyon
+
+-   Réalisez une **jointure spatiale** de `lyon_equipements` et `arrondissements`
+
+-   Gardez dans `lyon_equipements` uniquement les équipements qui sont **effectivement situés dans la ville de Lyon**.
+
+🎯 Objectifs :
+
+-   comprendre le principe des "simple features" (package sf)
+-   savoir **lire** des données spatiales vectorielles
+-   connaître quelques fonctions de base quant aux **systèmes de coordonnées**, **projections** et **affichage** des objets sf.
+-   comprendre l'**articulation entre sf, dplyr et ggplot2**
+
+## Cartes {#cartes .unnumbered}
+
+👩‍🏫 Cours: [Cartes](http://perso.ens-lyon.fr/lise.vaudor/Supports_formation/Restart_8_cartes.html){target="_blank"}
+
+👨‍💻👩‍💻 Exos: à la suite de ce que vous avez fait précédemment:
+
+-   Montrez les équipements sur une **carte**
+
+-   Rajoutez les **polygones des arrondissements**
+
+-   Calculez le **nombre total d'équipements pour chaque arrondissement**. Vous pourrez pour ce faire considérer `lyon_equipements` comme une simple table (`st_drop_geometry()`).
+
+-   Réalisez une **jointure (non spatiale)** pour disposer du nombre d'équipements total pour chaque arrondissements.
+
+-   Calculez `nrel`, le **nombre d'équipements par km2 pour chaque arrondissement** (vous pouvez utiliser `units::set_units()` pour convertir l'aire à l'unité de votre choix)
+
+-   Réalisez une **carte montrant la densité d'équipements pour les différents arrondissements**
+
+-   Calculez le **nombre d'équipements de chaque type pour chaque arrondissement**.
+
+-   Réalisez une **jointure (non spatiale)** pour disposer du **nombre d'équipements de chaque type pour chaque arrondissement**.
+
+-   Calculez `nreltype` le **nombre d'équipements d'un type ramené au nombre total d'équipements de chaque arrondissement**.
+
+-   Montrez sur une carte **la densité d'équipements de type "petite_enfance"** pour les arrondissements de Lyon
+
+🎯 Objectifs :
+
+-   comprendre le principe du package **tmap**
+-   savoir créer des cartes **statiques** ou **dynamiques**
+-   savoir utiliser tm_shape() et tm\_...() en fonction de l'objet sf considéré
+-   savoir ajouter/changer/retirer la **basemap**
+-   comprendre comment **paramétrer** ses cartes
