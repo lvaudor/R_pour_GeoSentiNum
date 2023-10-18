@@ -33,11 +33,63 @@ Vous pouvez définir vous-mêmes les questions auxquelles vous souhaitez répond
 
 Au-delà des **données de départ que je fixe**, le sujet est donc très **libre**... Emparez-vous en, et surprenez-moi 🙂.
 
+# Quelques pistes
+
+## Production
+
+Le but de ce DM est que vous soyiez en mesure de produire quelque chose avec R, à partir de données. Il va donc donc vous falloir *produire* un résultat que je puisse évaluer (par exemple un rapport Quarto...). 
+
+✅ Installer R, RStudio
+
+✅ Exécuter du code R 
+
+✅ Ecrire et tricoter un rapport
+
+## Combinaison de sources de données
+
+Vous disposez de 2 jeux de données, qui ont en commun l'information correspondant au pays. Peut-être souhaiterez-vous réaliser une **jointure** sur ces deux jeux de données pour pouvoir croiser les informations qu'ils contiennent?
+
+Voir par exemple la fonction `dplyr::left_join()` (un article sur les combinaisons et jointures de tables [ici](https://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/))
+
+✅ Réaliser une jointure de tableaux
+
+✅ Croiser des sources de données diverses
+
+## Cartographie
+
+Les jeux de données comportent des **coordonnées géographiques** (points). Peut-être pourriez-vous produire des cartes?
+
+✅ Lire un jeu de données géographiques (sf...)
+
+✅ Produire une carte
+
+✅ Customiser une carte
+
+## Graphiques
+
+Au-delà de graphiques très simples décrivant les données (nombres d'hôpitaux par pays par exemple), vous pouvez tenter de **croiser graphiquement des informations** (nombre d'hôpitaux par pays vs espérance de vie dans ce pays, peut-être en prenant en compte la population ou l'aire du pays...).
+
+✅ Résumer, croiser des données (manipulation de tableaux)
+
+✅ Réaliser une représentation graphique adaptée
+
+## Angle d'analyse
+
+J'aimerais que vous me montriez que vous êtes capables de réaliser des choses avec R, mais aussi, idéalement, j'aimerais que ces choses aient un **sens**. Est-ce que ce que vous avez produit répond à une **question**? Si c'est le cas cela vous aidera à avoir des idées de choses à faire, au-delà de la simple "démonstration technique"...
+
+✅ Imaginer une question (thématique) à laquelle les jeux de données pourraient répondre
+
+✅ Produire les éléments d'analyse permettant de répondre à cette question
+
+## Créativité
+
+Vous pouvez faire le choix de poser une question qui tombe sous le sens ou un peu originale, de n'utiliser qu'une partie des données, ou au contraire de les compléter par d'autres jeux de données que vous avez identifiés/téléchargés par ailleurs.
+
 # Les données
 
 Je récupère les deux tables de données initiales à partir d'une requête à **Wikidata** (formulée à l'aide du package [glitter](https://github.com/lvaudor/glitter)).
 
-Vou pouvez consulter la **documentation de Wikidata** pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple [ici](https://www.wikidata.org/wiki/Q19185932)) ou aux pays (par exemple [ici](https://www.wikidata.org/wiki/Q142)).
+Vous pouvez consulter la **documentation de Wikidata** pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple [ici](https://www.wikidata.org/wiki/Q19185932)) ou aux pays (par exemple [ici](https://www.wikidata.org/wiki/Q142)).
 
 Le premier jeu de données comprend plus de 22 000 enregistrements d'hôpitaux:
 
@@ -51,6 +103,7 @@ hopitaux=spq_init() %>%
   spq_perform()%>% 
   dplyr::filter(stringr::str_detect(coords,"Point")) %>% 
   sf::st_as_sf(wkt="coords")
+
 sf::st_write(hopitaux,"data/hopitaux.shp")
 ```
 
@@ -61,13 +114,15 @@ pays=spq_init() %>%
   spq_add("?pays wdt:P31 wd:Q6256") %>% 
   spq_label(pays) %>% 
   spq_add("?pays wdt:P1082 ?population", .required=FALSE) %>% 
+  spq_add("?pays wdt:P2046 ?area", .required=FALSE) %>% 
   spq_add("?pays wdt:P625 ?coords") %>%
   spq_add("?pays wdt:P1081 ?human_dev_index", .required=FALSE) %>% 
   spq_add("?pays wdt:P2250 ?life_expectancy", .required=FALSE) %>%
   spq_add("?pays wdt:P297 ?iso2", .required=FALSE) %>% 
   spq_add("?pays wdt:P298 ?iso3", .required=FALSE) %>% 
   spq_perform() %>% 
-  sf::st_as_sf(pays, wkt="coords")
+  sf::st_as_sf(wkt="coords")
+
 sf::st_write(pays,"data/pays.shp")
 ```
 

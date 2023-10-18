@@ -3,7 +3,6 @@ project:
   output-dir: docs
 
 website:
-  title: "R pour les GeoSentiNum"
   navbar:
     left:
       - href: index.qmd

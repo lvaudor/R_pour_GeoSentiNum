@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R pour les GeoSentiNum - DM</title>
+<title>DM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,11 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">R pour les GeoSentiNum</span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -153,6 +148,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#format-du-rendu" id="toc-format-du-rendu" class="nav-link" data-scroll-target="#format-du-rendu">Format du rendu</a></li>
   </ul></li>
   <li><a href="#le-sujet" id="toc-le-sujet" class="nav-link" data-scroll-target="#le-sujet">Le sujet</a></li>
+  <li><a href="#quelques-pistes" id="toc-quelques-pistes" class="nav-link" data-scroll-target="#quelques-pistes">Quelques pistes</a>
+  <ul class="collapse">
+  <li><a href="#production" id="toc-production" class="nav-link" data-scroll-target="#production">Production</a></li>
+  <li><a href="#combinaison-de-sources-de-données" id="toc-combinaison-de-sources-de-données" class="nav-link" data-scroll-target="#combinaison-de-sources-de-données">Combinaison de sources de données</a></li>
+  <li><a href="#cartographie" id="toc-cartographie" class="nav-link" data-scroll-target="#cartographie">Cartographie</a></li>
+  <li><a href="#graphiques" id="toc-graphiques" class="nav-link" data-scroll-target="#graphiques">Graphiques</a></li>
+  <li><a href="#angle-danalyse" id="toc-angle-danalyse" class="nav-link" data-scroll-target="#angle-danalyse">Angle d’analyse</a></li>
+  <li><a href="#créativité" id="toc-créativité" class="nav-link" data-scroll-target="#créativité">Créativité</a></li>
+  </ul></li>
   <li><a href="#les-données" id="toc-les-données" class="nav-link" data-scroll-target="#les-données">Les données</a></li>
   </ul>
 </nav>
@@ -203,10 +207,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Vous pouvez définir vous-mêmes les questions auxquelles vous souhaitez répondre, les méthodes mises en oeuvre (bon, en R quand-même), les graphiques et cartes que vous souhaitez produire. Vous êtes libres de chercher des données complémentaires si vous le souhaitez (et que les 10h imparties vous en laissent le temps).</p>
 <p>Au-delà des <strong>données de départ que je fixe</strong>, le sujet est donc très <strong>libre</strong>… Emparez-vous en, et surprenez-moi 🙂.</p>
 </section>
+<section id="quelques-pistes" class="level1">
+<h1>Quelques pistes</h1>
+<section id="production" class="level2">
+<h2 class="anchored" data-anchor-id="production">Production</h2>
+<p>Le but de ce DM est que vous soyiez en mesure de produire quelque chose avec R, à partir de données. Il va donc donc vous falloir <em>produire</em> un résultat que je puisse évaluer (par exemple un rapport Quarto…).</p>
+<p>✅ Installer R, RStudio</p>
+<p>✅ Exécuter du code R</p>
+<p>✅ Ecrire et tricoter un rapport</p>
+</section>
+<section id="combinaison-de-sources-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="combinaison-de-sources-de-données">Combinaison de sources de données</h2>
+<p>Vous disposez de 2 jeux de données, qui ont en commun l’information correspondant au pays. Peut-être souhaiterez-vous réaliser une <strong>jointure</strong> sur ces deux jeux de données pour pouvoir croiser les informations qu’ils contiennent?</p>
+<p>Voir par exemple la fonction <code>dplyr::left_join()</code> (un article sur les combinaisons et jointures de tables <a href="https://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/">ici</a>)</p>
+<p>✅ Réaliser une jointure de tableaux</p>
+<p>✅ Croiser des sources de données diverses</p>
+</section>
+<section id="cartographie" class="level2">
+<h2 class="anchored" data-anchor-id="cartographie">Cartographie</h2>
+<p>Les jeux de données comportent des <strong>coordonnées géographiques</strong> (points). Peut-être pourriez-vous produire des cartes?</p>
+<p>✅ Lire un jeu de données géographiques (sf…)</p>
+<p>✅ Produire une carte</p>
+<p>✅ Customiser une carte</p>
+</section>
+<section id="graphiques" class="level2">
+<h2 class="anchored" data-anchor-id="graphiques">Graphiques</h2>
+<p>Au-delà de graphiques très simples décrivant les données (nombres d’hôpitaux par pays par exemple), vous pouvez tenter de <strong>croiser graphiquement des informations</strong> (nombre d’hôpitaux par pays vs espérance de vie dans ce pays, peut-être en prenant en compte la population ou l’aire du pays…).</p>
+<p>✅ Résumer, croiser des données (manipulation de tableaux)</p>
+<p>✅ Réaliser une représentation graphique adaptée</p>
+</section>
+<section id="angle-danalyse" class="level2">
+<h2 class="anchored" data-anchor-id="angle-danalyse">Angle d’analyse</h2>
+<p>J’aimerais que vous me montriez que vous êtes capables de réaliser des choses avec R, mais aussi, idéalement, j’aimerais que ces choses aient un <strong>sens</strong>. Est-ce que ce que vous avez produit répond à une <strong>question</strong>? Si c’est le cas cela vous aidera à avoir des idées de choses à faire, au-delà de la simple “démonstration technique”…</p>
+<p>✅ Imaginer une question (thématique) à laquelle les jeux de données pourraient répondre</p>
+<p>✅ Produire les éléments d’analyse permettant de répondre à cette question</p>
+</section>
+<section id="créativité" class="level2">
+<h2 class="anchored" data-anchor-id="créativité">Créativité</h2>
+<p>Vous pouvez faire le choix de poser une question qui tombe sous le sens ou un peu originale, de n’utiliser qu’une partie des données, ou au contraire de les compléter par d’autres jeux de données que vous avez identifiés/téléchargés par ailleurs.</p>
+</section>
+</section>
 <section id="les-données" class="level1">
 <h1>Les données</h1>
 <p>Je récupère les deux tables de données initiales à partir d’une requête à <strong>Wikidata</strong> (formulée à l’aide du package <a href="https://github.com/lvaudor/glitter">glitter</a>).</p>
-<p>Vou pouvez consulter la <strong>documentation de Wikidata</strong> pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple <a href="https://www.wikidata.org/wiki/Q19185932">ici</a>) ou aux pays (par exemple <a href="https://www.wikidata.org/wiki/Q142">ici</a>).</p>
+<p>Vous pouvez consulter la <strong>documentation de Wikidata</strong> pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple <a href="https://www.wikidata.org/wiki/Q19185932">ici</a>) ou aux pays (par exemple <a href="https://www.wikidata.org/wiki/Q142">ici</a>).</p>
 <p>Le premier jeu de données comprend plus de 22 000 enregistrements d’hôpitaux:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glitter)</span>
@@ -218,7 +262,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_perform</span>()<span class="sc">%&gt;%</span> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(coords,<span class="st">"Point"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>(<span class="at">wkt=</span><span class="st">"coords"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_write</span>(hopitaux,<span class="st">"data/hopitaux.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_write</span>(hopitaux,<span class="st">"data/hopitaux.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le deuxième jeu de données procure quelques descripteurs des pays:</p>
 <div class="cell">
@@ -226,14 +271,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P31 wd:Q6256"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_label</span>(pays) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P1082 ?population"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P625 ?coords"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P1081 ?human_dev_index"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P2250 ?life_expectancy"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P297 ?iso2"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P298 ?iso3"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_perform</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>(pays, <span class="at">wkt=</span><span class="st">"coords"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_write</span>(pays,<span class="st">"data/pays.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P2046 ?area"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P625 ?coords"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P1081 ?human_dev_index"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P2250 ?life_expectancy"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P297 ?iso2"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_add</span>(<span class="st">"?pays wdt:P298 ?iso3"</span>, <span class="at">.required=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spq_perform</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>(<span class="at">wkt=</span><span class="st">"coords"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_write</span>(pays,<span class="st">"data/pays.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ces jeux de données sont téléchargeables à l’adresse suivante: <a href="https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip" class="uri">https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip</a>.</p>
 

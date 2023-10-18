@@ -88,7 +88,7 @@
     "href": "organisation.html#seance3",
     "title": "ORGANISATION",
     "section": "🏫 SEANCE 3",
-    "text": "🏫 SEANCE 3\nAbordés en séance 3:\n\nGraphiques\nProgrammation\nObjets spatiaux\nCartes"
+    "text": "🏫 SEANCE 3\nAbordés en séance 3:\n\nGraphiques\nObjets spatiaux\nCartes"
   },
   {
     "objectID": "organisation.html#dm3",
@@ -257,5 +257,47 @@
     "title": "DM",
     "section": "",
     "text": "J’attends que vous me fournissiez à la fois:\n\nle document comportant les codes utilisés (par exemple, un projet Quarto .qmd). Ce document me permettra de voir l’intégralité des lignes de commande que vous aurez écrites.\nun rendu de type rapport (par exemple le fichier .doc, .html, ou .pdf selon vos préférences que vous aurez tricoté à partir du document .qmd).\n\nDe ce fait, vous pouvez, si vous le souhaitez, ne pas me montrer les lignes de commandes dans le rapport pour faire “comme si” j’étais un interlocuteur qui ne connaît pas le langage et s’intéresse juste aux résultats…\nSi vous me montrez des tableaux de données intermédiaires, essayez de me montrer seulement quelques lignes, ou leurs dimensions, pas des tableaux énormes qui vont générer 10 pages de rapport pour pas grand chose…"
+  },
+  {
+    "objectID": "DM.html#production",
+    "href": "DM.html#production",
+    "title": "DM",
+    "section": "Production",
+    "text": "Production\nLe but de ce DM est que vous soyiez en mesure de produire quelque chose avec R, à partir de données. Il va donc donc vous falloir produire un résultat que je puisse évaluer (par exemple un rapport Quarto…).\n✅ Installer R, RStudio\n✅ Exécuter du code R\n✅ Ecrire et tricoter un rapport"
+  },
+  {
+    "objectID": "DM.html#combinaison-de-sources-de-données",
+    "href": "DM.html#combinaison-de-sources-de-données",
+    "title": "DM",
+    "section": "Combinaison de sources de données",
+    "text": "Combinaison de sources de données\nVous disposez de 2 jeux de données, qui ont en commun l’information correspondant au pays. Peut-être souhaiterez-vous réaliser une jointure sur ces deux jeux de données pour pouvoir croiser les informations qu’ils contiennent?\nVoir par exemple la fonction dplyr::left_join() (un article sur les combinaisons et jointures de tables ici)\n✅ Réaliser une jointure de tableaux\n✅ Croiser des sources de données diverses"
+  },
+  {
+    "objectID": "DM.html#cartographie",
+    "href": "DM.html#cartographie",
+    "title": "DM",
+    "section": "Cartographie",
+    "text": "Cartographie\nLes jeux de données comportent des coordonnées géographiques (points). Peut-être pourriez-vous produire des cartes?\n✅ Lire un jeu de données géographiques (sf…)\n✅ Produire une carte\n✅ Customiser une carte"
+  },
+  {
+    "objectID": "DM.html#graphiques",
+    "href": "DM.html#graphiques",
+    "title": "DM",
+    "section": "Graphiques",
+    "text": "Graphiques\nAu-delà de graphiques très simples décrivant les données (nombres d’hôpitaux par pays par exemple), vous pouvez tenter de croiser graphiquement des informations (nombre d’hôpitaux par pays vs espérance de vie dans ce pays, peut-être en prenant en compte la population ou l’aire du pays…).\n✅ Résumer, croiser des données (manipulation de tableaux)\n✅ Réaliser une représentation graphique adaptée"
+  },
+  {
+    "objectID": "DM.html#angle-danalyse",
+    "href": "DM.html#angle-danalyse",
+    "title": "DM",
+    "section": "Angle d’analyse",
+    "text": "Angle d’analyse\nJ’aimerais que vous me montriez que vous êtes capables de réaliser des choses avec R, mais aussi, idéalement, j’aimerais que ces choses aient un sens. Est-ce que ce que vous avez produit répond à une question? Si c’est le cas cela vous aidera à avoir des idées de choses à faire, au-delà de la simple “démonstration technique”…\n✅ Imaginer une question (thématique) à laquelle les jeux de données pourraient répondre\n✅ Produire les éléments d’analyse permettant de répondre à cette question"
+  },
+  {
+    "objectID": "DM.html#créativité",
+    "href": "DM.html#créativité",
+    "title": "DM",
+    "section": "Créativité",
+    "text": "Créativité\nVous pouvez faire le choix de poser une question qui tombe sous le sens ou un peu originale, de n’utiliser qu’une partie des données, ou au contraire de les compléter par d’autres jeux de données que vous avez identifiés/téléchargés par ailleurs."
   }
 ]
