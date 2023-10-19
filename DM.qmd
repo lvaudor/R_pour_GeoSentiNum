@@ -4,6 +4,10 @@ title: "DM"
 
 # L'organisation
 
+## Date de rendu
+
+J'attends le rendu le **vendredi 22/12/2023 max**. Envoyez le moi sur *monprénom.monnom*@ens-lyon.fr. Il y aura -2 points par semaine de retard (2 jours de retard= -2 points, 10 jours de retard= -4 points)!
+
 ## Groupes
 
 Vous pouvez me fournir **un rendu par groupe** (les groupes que vous avez défini pendant le cours rassemblant des GeoNum et des Sentinelles...). Vous pouvez accéder au Discord GeoSentiNum n'importe quand pour travailler sur le DM.
