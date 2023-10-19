@@ -255,6 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="les-données" class="level1">
 <h1>Les données</h1>
 <p>Je récupère les deux tables de données initiales à partir d’une requête à <strong>Wikidata</strong> (formulée à l’aide du package <a href="https://github.com/lvaudor/glitter">glitter</a>).</p>
+<p>Ces jeux de données sont téléchargeables à l’adresse suivante: <a href="https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip" class="uri">https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip</a>.</p>
+<p>Vous n’avez <strong>pas besoin d’exécuter le code suivant</strong>, je vous fournis déjà la sortie dans le zip. Je le mets ici pour que vous puissiez (si vous avez envie) enrichir votre jeu de données ou le compléter par d’autres données Wikidata -ou autre SPARQL endpoint-). Dans ce cas il vous faudra installer glitter depuis <a href="https://github.com/lvaudor/glitter">son repo github</a> (instructions d’installation en bas du README).</p>
 <p>Vous pouvez consulter la <strong>documentation de Wikidata</strong> pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple <a href="https://www.wikidata.org/wiki/Q19185932">ici</a>) ou aux pays (par exemple <a href="https://www.wikidata.org/wiki/Q142">ici</a>).</p>
 <p>Le premier jeu de données comprend plus de 22 000 enregistrements d’hôpitaux:</p>
 <div class="cell">
@@ -287,7 +289,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_write</span>(pays,<span class="st">"data/pays.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Ces jeux de données sont téléchargeables à l’adresse suivante: <a href="https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip" class="uri">https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip</a>.</p>
 
 
 </section>

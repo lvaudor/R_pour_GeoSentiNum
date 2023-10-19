@@ -93,6 +93,12 @@ Vous pouvez faire le choix de poser une question qui tombe sous le sens ou un pe
 
 Je récupère les deux tables de données initiales à partir d'une requête à **Wikidata** (formulée à l'aide du package [glitter](https://github.com/lvaudor/glitter)).
 
+
+Ces jeux de données sont téléchargeables à l'adresse suivante: <https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip>.
+
+
+Vous n'avez **pas besoin d'exécuter le code suivant**, je vous fournis déjà la sortie dans le zip. Je le mets ici pour que vous puissiez (si vous avez envie) enrichir votre jeu de données ou le compléter par d'autres données Wikidata -ou autre SPARQL endpoint-). Dans ce cas il vous faudra installer glitter depuis [son repo github](https://github.com/lvaudor/glitter) (instructions d'installation en bas du README).
+
 Vous pouvez consulter la **documentation de Wikidata** pour mieux comprendre la nature des données, notamment les fiches relatives aux hôpitaux (par exemple [ici](https://www.wikidata.org/wiki/Q19185932)) ou aux pays (par exemple [ici](https://www.wikidata.org/wiki/Q142)).
 
 Le premier jeu de données comprend plus de 22 000 enregistrements d'hôpitaux:
@@ -129,5 +135,3 @@ pays=spq_init() %>%
 
 sf::st_write(pays,"data/pays.shp")
 ```
-
-Ces jeux de données sont téléchargeables à l'adresse suivante: <https://perso.ens-lyon.fr/lise.vaudor/datasets/data_DM_GeoSentiNum.zip>.
