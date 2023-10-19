@@ -135,3 +135,7 @@ pays=spq_init() %>%
 
 sf::st_write(pays,"data/pays.shp")
 ```
+
+## Données complémentaires
+
+Si vous souhaitez faire de la carto avec des pays en géométrie polygone plutôt que point, vous pouvez aller télécharger le shapefile disponible (par exemple) [ici](https://thematicmapping.org/downloads/world_borders.php).

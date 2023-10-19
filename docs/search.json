@@ -306,5 +306,12 @@
     "title": "DM",
     "section": "",
     "text": "J’attends le rendu le vendredi 22/12/2023 max. Envoyez le moi sur monprénom.monnom@ens-lyon.fr. Il y aura -2 points par semaine de retard (2 jours de retard= -2 points, 10 jours de retard= -4 points)!"
+  },
+  {
+    "objectID": "DM.html#données-complémentaires",
+    "href": "DM.html#données-complémentaires",
+    "title": "DM",
+    "section": "Données complémentaires",
+    "text": "Données complémentaires\nSi vous souhaitez faire de la carto avec des pays en géométrie polygone plutôt que point, vous pouvez aller télécharger le shapefile disponible (par exemple) ici."
   }
 ]
